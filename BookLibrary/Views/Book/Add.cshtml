@@ -1,0 +1,98 @@
+﻿@model BookLibrary.Models.Entity.Book
+
+@{
+    ViewData["Title"] = "Add Book";
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+@* 
+            <form method="get" asp-action="Search" asp-controller="Book">
+
+                <p>
+                    <h3>Search For Book Here</h3>
+                    <input type="search" placeholder="Enter Book Title" value="@ViewData["GetBookDetails"]" name="search" style="width:500px;" />
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </p>
+
+            </form> *@
+
+            <h3>Add Book </h3>
+
+            <form asp-controller="Book" asp-action="Add" method="post">
+                <div class="form-group">
+                    <label asp-for="Title">Title *</label>
+                    <input type="text" class="form-control" asp-for="Title"/>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GenreId">Genre *</label>
+                    <select asp-for="GenreId" asp-items="Model.GenreList" class="form-control">
+                        <option value="">-Select-</option>
+                    </select>
+                    <span asp-validation-for="GenreId" class="text-danger"></span>
+                </div> 
+
+                <div class="form-group">
+                    <label asp-for="GenreName">GenreName *</label>
+                    <input type="text" class="form-control" asp-for="GenreName" />
+                    <span asp-validation-for="GenreName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImageUrl">Image-Url *</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description">BookDescription *</label>
+                    <input type="text" class="form-control" asp-for="Description" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ISBN">Isbn *</label>
+                    <input type="text" class="form-control" asp-for="ISBN" />
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TotalPages">TotalPages *</label>
+                    <input type="number" class="form-control" asp-for="TotalPages" />
+                    <span asp-validation-for="TotalPages" class="text-danger"></span>
+                </div>
+
+                @* <div class="form-group">
+                    <label asp-for="DateAddedToLibrary">Date Added To Library *</label>
+                    <input class="form-control" asp-for="DateAddedToLibrary" />
+                    <span asp-validation-for="DateAddedToLibrary" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PublishedDate">Published Date *</label>
+                    <input class="form-control" asp-for="PublishedDate" />
+                    <span asp-validation-for="PublishedDate" class="text-danger"></span>
+                </div> *@
+
+
+                @if(TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"];
+                    </div>
+                }
+
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-dark">Save</button>
+                    <a href="/Book/GetAll" class="btn btn-primary">List</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

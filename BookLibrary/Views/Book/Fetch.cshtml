@@ -1,0 +1,27 @@
+﻿@model List<BookLibrary.Models.Entity.Book>
+
+@foreach(var book in Model)
+{
+    <br>
+    <h4>showing result 1 of 1 for @book.Title</h4>
+    <div class="search-result d-flex">
+
+        <div>
+            <img src="@book.ImageUrl">
+        </div>
+        <div>
+            <ul>
+                <li>Name:   @book.Title"</li>
+                <li>Genre:  @book.GenreName</li>
+                <li>ISBN:   @book.ISBN</li>
+                <li>Total Pages: @book.TotalPages</li>
+                <li>Date Added To Library: @book.DateAddedToLibrary</li>
+                <li>Date Published: @book.PublishedDate</li>
+                <br>
+                <li>Description: @book.Description</li>
+            </ul>
+
+        </div>
+
+    </div>
+}

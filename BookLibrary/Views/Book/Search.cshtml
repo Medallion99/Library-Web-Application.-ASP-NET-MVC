@@ -1,0 +1,51 @@
+﻿@model List<BookLibrary.Models.Entity.Book>
+
+@{
+    ViewData["Title"] = "Search Book";
+}
+@* 
+<h2>Search Results</h2> *@
+
+@* <table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <!-- Add other columns as needed -->
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.Title</td>
+            <td>@book.GenreName</td>
+            <!-- Add other columns as needed -->
+        </tr>
+    }
+</table> *@
+
+@foreach (var book in Model)
+{
+    <br>
+    <h4>showing result 1 of 1 for @book.Title</h4>
+    <div class="search-result d-flex">
+    
+        <div>
+            <img src="@book.ImageUrl">
+        </div>
+        <div>
+            <ul>
+                <li>Name:   @book.Title"</li>
+                <li>Genre:  @book.GenreName</li>
+                <li>ISBN:   @book.ISBN</li>
+                <li>Total Pages: @book.TotalPages</li>
+                <li>Date Added To Library: @book.DateAddedToLibrary</li>
+                <li>Date Published: @book.PublishedDate</li>
+                <li>Date Published: @book.DateAddedToLibrary</li>
+                <li>Date Published: @book.PublishedDate</li>
+                <br>
+                <li>Description: @book.Description</li>
+            </ul>
+            
+        </div>
+
+    </div>
+}

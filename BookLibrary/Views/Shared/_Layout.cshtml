@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BookLibrary</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+</head>
+
+ @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+     <ul class="navbar-nav flex-grow-1">
+         <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Genre" asp-action="Add">Add Genre</a>
+         </li>
+         <li class="nav-item">
+             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Add">Add Book</a>
+         </li>
+     </ul>
+ </div> *@
+    
+<header>
+    <div class="nav">
+        <div><img src="#" alt="logo">
+        </div>
+        <ul class="nav-right">
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Genre" asp-action="Add">Add Genre</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Add">Add Book</a>
+            </li>
+        </ul>
+    </div>
+    <div style="margin-left: 30%; margin-right: 30%; margin-bottom:30px; align-items: center;" class="d-flex justify-content-sm-evenly text-center">
+        <div>
+            <p class="fw-bold">Wish to Search</p>
+        </div>
+        <div>
+            <button class="btn btn-primary rounded-pill" style="background: white;  color: black;">Books</button>
+        </div>
+        <div>
+            <button class="btn btn-primary rounded-pill" style="background:  white; color: black;">CDs</button>
+        </div>
+        <p>Only available copies will display</p>
+    </div>
+        
+    <div class="search d-flex text-center justify-content-center ">
+    <form method="get" asp-action="Search" asp-controller="Book">
+
+        <p>
+            <h3>Search For Book Here</h3>
+            <input type="search" placeholder="Enter Book Title" value="@ViewData["Search"]" name="Search" style="width:500px;" />
+            <input type="submit" @* value="Search" *@ style="margin-bottom:20px; margin-top:10px; padding-top:5px;" class="btn btn-primary" />
+        </p>
+
+    </form>
+    </div>
+</header>
+   
+            @RenderBody()
+
+
+<footer>
+    <div>
+        <img src="~/images/Combined Shape 2.svg" alt="Spencer logo" type="logo" />
+    </div>
+    <div class='footer-links'>
+        <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
+        </ul>
+    </div>
+    <div>
+        <img src="~/images/Group 4.svg" alt="Social Media Icons" type="icons" />
+    </div>
+</footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</html>
